@@ -2,9 +2,9 @@
 A Starter Repository for ML Team Experimentation
 
 ## Getting Started
-Copy the [Template Job](https://tentacruel.bb.schrodinger.com/jenkins/job/ml_experiment_template/]) naming it what you want.
-
-Change the "Branch Specifier" to your branch.
+1. Branch off of this repo
+2. Copy the [Template Job](https://tentacruel.bb.schrodinger.com/jenkins/job/ml_experiment_template/]) naming it what you want.
+3. On Jenkins Change the "Branch Specifier" to your branch.
 
 When run the jenkins job it will run `my_experiment.py` with the python environment described in `devtools/requirements.json`
 
