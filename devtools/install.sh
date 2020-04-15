@@ -36,7 +36,4 @@ else
 fi
 python devtools/conda_install_from_json.py devtools/requirements.json
 
-echo "calling setup.py $INSTALL_MODE"
-python setup.py $INSTALL_MODE
-
 echo "Installed $ENV_NAME conda environment"
