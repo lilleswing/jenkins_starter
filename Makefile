@@ -1,4 +1,4 @@
-.PHONY : clean run install uninstall
+.PHONY : clean install uninstall run test all
 
 install:
 	bash devtools/install.sh
@@ -17,5 +17,8 @@ clean:
 	rm -f nosetests.xml
 	rm -f log.log
 
-run: nosetests.xml log.log
+test: nosetests.xml
 
+run: log.log
+
+all: test run
