@@ -8,9 +8,9 @@ uninstall:
 	conda remove --name ml_starter --all -y
 
 clean:
-	@echo Cleaning
+	rm -f nosetests.xml
 
 run:
-	nosetests test_all.py
+	nosetests test_all.py --with-xunit
 	python my_experiment.py
 
