@@ -14,8 +14,7 @@ log.log: my_experiment.py
 	python my_experiment.py | tee log.log
 
 clean:
-	rm -f nosetests.xml
-	rm -f log.log
+	rm -f nosetests.xml log.log
 
 test: nosetests.xml
 
