@@ -8,7 +8,7 @@ uninstall:
 	conda remove --name ml_starter --all -y
 
 nosetests.xml: test_all.py
-	nosetests test_all.py --with-xunit
+	pytest --junitxml=nosetests.xml test_all.py
 
 log.log: my_experiment.py
 	python my_experiment.py | tee log.log
