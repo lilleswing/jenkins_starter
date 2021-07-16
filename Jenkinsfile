@@ -9,6 +9,7 @@ pipeline {
     stages {
         stage('Run') {
             steps {
+                checkout scm
                 sh '''#!/bin/bash
                 bash devtools/jenkins.sh
                 '''
