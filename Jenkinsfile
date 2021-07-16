@@ -9,8 +9,6 @@ pipeline {
     stages {
         stage('Run') {
             steps {
-                deleteDir()
-                checkout scm
                 sh '''#!/bin/bash
                 bash devtools/jenkins.sh
                 '''
@@ -19,8 +17,16 @@ pipeline {
     }
     post {
             always {
-                junit 'nosetests.xml'
-                deleteDir()
+                try {
+                    junit 'nosetests.xml'
+                } catch (err) {
+                    echo "Caught: ${err}"
+                }
+                try {
+                    deleteDir()
+                } catch (err) {
+                    echo "Caught: ${err}"
+                }
             }
             failure {
                 script {
