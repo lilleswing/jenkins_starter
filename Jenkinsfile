@@ -3,6 +3,9 @@ pipeline {
         any {
         }
     }
+    triggers {
+        cron(env.BRANCH_NAME == 'master' ? '0 H * * *' : '')
+    }
     stages {
         stage('Run') {
             steps {
