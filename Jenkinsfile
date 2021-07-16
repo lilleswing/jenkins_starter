@@ -15,17 +15,19 @@ pipeline {
             }
         }
         stage("Cleanup") {
-            try {
-                junit 'nosetests.xml'
-            } catch (err) {
-                echo "Caught: ${err}"
-                currentBuild.result = 'FAILURE'
-            }
-            try {
-                deleteDir()
-            } catch (err) {
-                echo "Caught: ${err}"
-                currentBuild.result = 'FAILURE'
+            steps {
+                try {
+                    junit 'nosetests.xml'
+                } catch (err) {
+                    echo "Caught: ${err}"
+                    currentBuild.result = 'FAILURE'
+                }
+                try {
+                    deleteDir()
+                } catch (err) {
+                    echo "Caught: ${err}"
+                    currentBuild.result = 'FAILURE'
+                }
             }
         }
     }
