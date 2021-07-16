@@ -14,28 +14,28 @@ pipeline {
                 '''
             }
         }
+        stage("Cleanup") {
+            try {
+                junit 'nosetests.xml'
+            } catch (err) {
+                echo "Caught: ${err}"
+                currentBuild.result = 'FAILURE'
+            }
+            try {
+                deleteDir()
+            } catch (err) {
+                echo "Caught: ${err}"
+                currentBuild.result = 'FAILURE'
+            }
+        }
     }
     post {
-            always {
-                try {
-                    junit 'nosetests.xml'
-                } catch (err) {
-                    echo "Caught: ${err}"
-                    currentBuild.result = 'FAILURE'
-                }
-                try {
-                    deleteDir()
-                } catch (err) {
-                    echo "Caught: ${err}"
-                    currentBuild.result = 'FAILURE'
+        failure {
+            script {
+                if (env.BRANCH_NAME == 'master') {
+                    emailext attachLog: true, body: '$DEFAULT_CONTENT', to: 'karl.leswing@gmail.com', recipientProviders: [], subject: '$DEFAULT_SUBJECT'
                 }
             }
-            failure {
-                script {
-                    if (env.BRANCH_NAME == 'master') {
-                        emailext attachLog: true, body: '$DEFAULT_CONTENT', to: 'karl.leswing@gmail.com', recipientProviders: [], subject: '$DEFAULT_SUBJECT'
-                    }
-                }
-            }
+        }
     }
 }
