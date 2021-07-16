@@ -21,11 +21,13 @@ pipeline {
                     junit 'nosetests.xml'
                 } catch (err) {
                     echo "Caught: ${err}"
+                    currentBuild.result = 'FAILURE'
                 }
                 try {
                     deleteDir()
                 } catch (err) {
                     echo "Caught: ${err}"
+                    currentBuild.result = 'FAILURE'
                 }
             }
             failure {
