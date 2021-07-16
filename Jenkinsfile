@@ -18,6 +18,7 @@ pipeline {
     post {
             always {
                 junit 'nosetests.xml'
+                deleteDir()
             }
             failure {
                 script {
