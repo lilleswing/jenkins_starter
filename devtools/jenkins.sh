@@ -9,6 +9,6 @@ fi
 export PATH=`pwd`/anaconda/bin:$PATH
 source activate ml_starter
 
-df -h > tmp.txt
+df > tmp.txt
 
 make all
