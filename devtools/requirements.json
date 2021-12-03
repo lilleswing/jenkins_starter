@@ -6,28 +6,15 @@
     "pytorch"
   ],
   "packages": [
-    "requests",
-    "matplotlib",
-    "xgboost",
-    "setuptools",
-    "rdkit>=2019.09.3.0",
-    "scikit-learn",
-    "scipy",
+    "psycopg2",
+    "sqlalchemy",
     "pandas",
-    "coverage",
-    "python>=3.8",
-    "jupyterlab",
-    "pytest",
     "make"
   ],
   "wheels": [
   ],
   "cpu_packages": [
-    "pytorch==1.9.0",
-    "cpuonly"
   ],
   "gpu_packages": [
-    "pytorch==1.9.0",
-    "cudatoolkit=11.1"
   ]
 }

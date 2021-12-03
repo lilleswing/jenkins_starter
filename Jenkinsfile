@@ -4,7 +4,7 @@ pipeline {
         }
     }
     triggers {
-        cron(env.BRANCH_NAME == 'master' ? '0 H * * *' : '')
+        cron('0 H * * *' : '')
     }
     stages {
         stage('Run') {
@@ -19,7 +19,6 @@ pipeline {
         always {
             script {
                 try {
-                    junit 'nosetests.xml'
                 } catch (err) {
                     echo "Caught: ${err}"
                     currentBuild.result = 'FAILURE'
