@@ -5,7 +5,7 @@ import datetime
 import os
 
 db_pass = os.environ['DB_PASS']
-engine = create_engine(f'postgresql://postgres:{db_pass}@halfwayhouse-local.ddns.net:5432/postgres')
+engine = create_engine(f'postgresql://postgres:{db_pass}@starmie.local:5432/postgres')
 
 
 def is_disk(s):
