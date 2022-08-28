@@ -6,3 +6,4 @@ dependencies:
   - conda-forge::psycopg2
   - conda-forge::pandas
   - conda-forge::make
+  - conda-forge::sqlalchemy
