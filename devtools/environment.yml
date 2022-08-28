@@ -1,0 +1,9 @@
+name: ml_starter
+channels:
+  - conda-forge
+dependencies:
+  - conda-forge::python=3.8
+  - conda-forge::psycopg2
+  - conda-forge::pandas
+  - conda-forge::make
+  - conda-forge::sqlalchemy
