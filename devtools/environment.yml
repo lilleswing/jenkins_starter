@@ -1,6 +1,7 @@
 name: ml_starter
 channels:
   - conda-forge
+  - pytorch
 dependencies:
   - conda-forge::python=3.8
   - conda-forge::psycopg2
@@ -8,3 +9,4 @@ dependencies:
   - conda-forge::pandas
   - conda-forge::make
   - conda-forge::sqlalchemy
+  - pytorch::pytorch
