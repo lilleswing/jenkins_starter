@@ -4,6 +4,7 @@ channels:
 dependencies:
   - conda-forge::python=3.8
   - conda-forge::psycopg2
+  - conda-forge::pytest
   - conda-forge::pandas
   - conda-forge::make
   - conda-forge::sqlalchemy
