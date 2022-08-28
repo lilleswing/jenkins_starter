@@ -4,3 +4,5 @@ __pycache__
 
 log.log
 nosetests.xml
+
+.ipynb_checkpoints

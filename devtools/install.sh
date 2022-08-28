@@ -15,6 +15,14 @@ then
    export CPU_ONLY=1
 fi
 
+export ENV_HASH=$(md5sum devtools/environment.yml | cut -f 1 -d " ")
+if [[ -d "anaconda" && -f "devtools/${ENV_HASH}" ]];
+then
+    exit 0
+else
+    rm -rf anaconda
+fi
+touch "devtools/${ENV_HASH}"
 
 export CONDA_EXISTS=`which conda`
 if [[ "$CONDA_EXISTS" = "" ]];
@@ -26,14 +34,6 @@ else
     echo "Using Existing Conda"
 fi
 
-# Install Libraries
-conda config --add channels conda-forge
-if [[ $NO_ENV -eq 0 ]]; then
-    conda create -y --name $ENV_NAME delegator
-    source activate $ENV_NAME
-else
-    conda install -y -q delegator
-fi
-python devtools/conda_install_from_json.py devtools/requirements.json
+conda env create --name=${ENV_NAME} -f devtools/environment.yml
 
 echo "Installed $ENV_NAME conda environment"
