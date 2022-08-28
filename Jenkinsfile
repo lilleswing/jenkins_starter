@@ -24,7 +24,7 @@ pipeline {
                     currentBuild.result = 'FAILURE'
                 }
                 try {
-                    deleteDir()
+                    echo "Job Complete"
                 } catch (err) {
                     echo "Caught: ${err}"
                     currentBuild.result = 'FAILURE'
