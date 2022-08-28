@@ -20,6 +20,7 @@ if [[ -d "anaconda" && -f "devtools/${ENV_HASH}" ]];
 then
     exit 0
 else
+    echo "Deleting Old Anaconda Repo"
     rm -rf anaconda
 fi
 touch "devtools/${ENV_HASH}"
